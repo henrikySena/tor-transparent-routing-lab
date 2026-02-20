@@ -1,6 +1,6 @@
 # Tor Transparency Lab — Traffic Transparency and Anonymity on Linux (Technical Study)
 
-## Executive Summary
+<br>
 
 This project documents a **technical and educational study** on network anonymity in Linux systems, starting from the premise that **Tor provides a robust architecture for anonymous browsing**, but that its effectiveness depends directly on **how it is integrated into the operating system**.
 
@@ -14,6 +14,7 @@ The focus was not merely to make Tor work, but to **understand why certain appro
 > ⚠️ This project is a technical study focused on understanding network architecture and anonymity limitations. It does not provide operational guidance for evasion, misuse, or bypassing monitoring systems.
 
 ---
+<br>
 
 ## Motivation
 
@@ -34,6 +35,7 @@ During practical experiments on Kali Linux, it became evident that **the issue d
 This project therefore stems from the need to **understand anonymity as a system-level property**, not as the result of isolated commands.
 
 ---
+<br>
 
 ## Technical Environment
 
@@ -57,6 +59,7 @@ This project therefore stems from the need to **understand anonymity as a system
 > Methodological note: tests were conducted manually with a focus on observing network behavior. Command outputs and detailed logs were not preserved, as the primary goal was conceptual understanding.
 
 ---
+<br>
 
 ## Technical Objectives
 
@@ -66,6 +69,7 @@ This project therefore stems from the need to **understand anonymity as a system
 4. Compare this approach with solutions designed for system-enforced anonymity
 
 ---
+<br>
 
 ## Tests and Practical Observations
 
@@ -90,6 +94,7 @@ This project therefore stems from the need to **understand anonymity as a system
 - `torsocks` depends on explicit application cooperation
 
 ---
+<br>
 
 ## Technical Analysis
 
@@ -107,6 +112,7 @@ Even with DNS pointing to `localhost`, applications that use:
 can exit the system without any form of anonymization.
 
 ---
+<br>
 
 ### Limitations of the Application-Level Model
 
@@ -120,6 +126,7 @@ Using Tor via `torsocks` presents structural limitations:
 This approach is suitable for **isolated use cases**, but insufficient for strong anonymity.
 
 ---
+<br>
 
 ### Anonymity as an Architectural Decision
 
@@ -130,6 +137,7 @@ The central insight of the project can be summarized as follows:
 Robust solutions do not trust users or applications; they **block by default** and explicitly allow only traffic that is correctly routed.
 
 ---
+<br>
 
 ## Scope Clarification
 
@@ -141,6 +149,7 @@ This decision reflects the core principle of the project: **to document only wha
 
 
 ---
+<br>
 
 ## Study Limitations
 
@@ -151,25 +160,27 @@ This decision reflects the core principle of the project: **to document only wha
 These limitations were consciously accepted, as the goal of the project was **mental model construction**, not forensic validation.
 
 ---
+<br>
 
 ## Key Learnings
 
-- DNS does not guarantee anonymity
-- Proxying does not equal transparency
-- ICMP bypasses Tor
-- Security depends more on architecture than on tools
+1. DNS does not guarantee anonymity
+> DNS controls name resolution, not traffic routing. Misconfigured or redirected DNS may block domain lookups, but it does not prevent direct IP communication or non-DNS-dependent traffic from leaving the system.
+> - Proxying does not equal transparency
+> - ICMP bypasses Tor
+> - Security depends more on architecture than on tools
 
----
+<br>
 
-## Next Steps
+2. Proxying does not equal transparency
+> Application-level proxies rely on voluntary cooperation from software and users. Without system-enforced routing, traffic can bypass the proxy, making this model unsuitable for strong anonymity guarantees.
 
-- In-depth study of Tor TransPort
-- Reproducing Whonix architecture (Gateway + Workstation)
-- Comparative analysis with Tails
-- Future inclusion of traffic capture and logs
+<br>
 
----
+3. ICMP bypasses Tor
+> Protocols operating outside the proxy scope, such as ICMP, are not encapsulated by Tor and can generate direct, non-anonymized network traffic, highlighting the limits of application-level approaches.
 
-## Methodological Notes
+<br> 
 
-This project was conducted with a deliberate focus on **structural learning**. Failures, unexpected behaviors, and limitations were treated as essential parts of the process, directly contributing to a deeper understanding of anonymity, networking, and security in Linux systems.
+4. Security depends more on architecture than on tools
+> Strong security emerges from restrictive, system-level design choices. Tools are only effective when embedded in an architecture that blocks by default and minimizes trust in user behavior and applications.
