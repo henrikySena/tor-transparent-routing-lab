@@ -64,6 +64,7 @@ This project therefore stems from the need to **understand anonymity as a system
 - `ping`
 - `torsocks`
 - `dig`
+- `Firefox (Kali Linux)` (used to confirm Tor network availability and validate successful access to Tor-enabled services via the Tor Browser configuration).
 - standard Linux networking utilities
 
 > Methodological note: tests were conducted manually with a focus on observing network behavior. Command outputs and detailed logs were not preserved, as the primary goal was conceptual understanding.
