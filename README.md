@@ -50,10 +50,14 @@ This project therefore stems from the need to **understand anonymity as a system
 - Virtualization: VirtualBox / VMware
 - Network mode: NAT
 
+<br>
+
 ### Services and Components
 - Tor daemon
 - NetworkManager
 - Firewall based on `iptables`
+
+<br>
 
 ### Tools Used
 - `curl`
@@ -84,14 +88,22 @@ This project therefore stems from the need to **understand anonymity as a system
 - `ping 8.8.8.8` → success
   - Demonstrates that ICMP does not depend on DNS
 
+<br>
+
 - `ping google.com` → failure
   - Local DNS configured to `127.0.0.1`
   - Failure occurs at name resolution, not packet transmission
 
+<br>
+
 - `curl http://example.com` → failure without Tor
+
+<br>
 
 - `torsocks curl https://check.torproject.org` → success
   - HTTP(S) traffic correctly encapsulated through the Tor network
+
+<br>
 
 ### Relevant Observations
 
@@ -110,12 +122,9 @@ One of the main takeaways from the lab was understanding that:
 
 > **Configuring DNS does not equate to controlling network traffic.**
 
-Even with DNS pointing to `localhost`, applications that use:
-- direct IP addresses
-- low-level sockets
-- protocols unsupported by proxies
+<br>
 
-can exit the system without any form of anonymization.
+Even with DNS pointing to `localhost`, applications that use direct IP addresses, low-level sockets, or protocols unsupported by proxies can exit the system without any form of anonymization.
 
 ---
 <br>
@@ -139,6 +148,8 @@ This approach is suitable for **isolated use cases**, but insufficient for stron
 The central insight of the project can be summarized as follows:
 
 > **Real anonymity is not a configuration — it is an architectural decision.**
+
+<br>
 
 Robust solutions do not trust users or applications; they **block by default** and explicitly allow only traffic that is correctly routed.
 
