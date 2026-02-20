@@ -11,6 +11,8 @@ The lab investigates, in both practical and conceptual terms, the differences be
 
 The focus was not merely to make Tor work, but to **understand why certain approaches fail**, where traffic leaks occur, and which architectural decisions make solutions such as **Tails** and **Whonix** more resilient.
 
+<br>
+
 > ⚠️ This project is a technical study focused on understanding network architecture and anonymity limitations. It does not provide operational guidance for evasion, misuse, or bypassing monitoring systems.
 
 ---
