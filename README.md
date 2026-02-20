@@ -1,6 +1,6 @@
 # Tor Transparency Lab — Traffic Transparency and Anonymity on Linux (Technical Study)
 
-<br>
+## Executive Summary
 
 This project documents a **technical and educational study** on network anonymity in Linux systems, starting from the premise that **Tor provides a robust architecture for anonymous browsing**, but that its effectiveness depends directly on **how it is integrated into the operating system**.
 
@@ -11,10 +11,9 @@ The lab investigates, in both practical and conceptual terms, the differences be
 
 The focus was not merely to make Tor work, but to **understand why certain approaches fail**, where traffic leaks occur, and which architectural decisions make solutions such as **Tails** and **Whonix** more resilient.
 
-> ⚠️ Study conducted in a controlled environment for strictly educational purposes.
+> ⚠️ This project is a technical study focused on understanding network architecture and anonymity limitations. It does not provide operational guidance for evasion, misuse, or bypassing monitoring systems.
 
 ---
-<br>
 
 ## Motivation
 
@@ -35,7 +34,6 @@ During practical experiments on Kali Linux, it became evident that **the issue d
 This project therefore stems from the need to **understand anonymity as a system-level property**, not as the result of isolated commands.
 
 ---
-<br>
 
 ## Technical Environment
 
@@ -59,7 +57,6 @@ This project therefore stems from the need to **understand anonymity as a system
 > Methodological note: tests were conducted manually with a focus on observing network behavior. Command outputs and detailed logs were not preserved, as the primary goal was conceptual understanding.
 
 ---
-<br>
 
 ## Technical Objectives
 
@@ -69,7 +66,6 @@ This project therefore stems from the need to **understand anonymity as a system
 4. Compare this approach with solutions designed for system-enforced anonymity
 
 ---
-<br>
 
 ## Tests and Practical Observations
 
@@ -94,7 +90,6 @@ This project therefore stems from the need to **understand anonymity as a system
 - `torsocks` depends on explicit application cooperation
 
 ---
-<br>
 
 ## Technical Analysis
 
@@ -112,7 +107,6 @@ Even with DNS pointing to `localhost`, applications that use:
 can exit the system without any form of anonymization.
 
 ---
-<br>
 
 ### Limitations of the Application-Level Model
 
@@ -126,7 +120,6 @@ Using Tor via `torsocks` presents structural limitations:
 This approach is suitable for **isolated use cases**, but insufficient for strong anonymity.
 
 ---
-<br>
 
 ### Anonymity as an Architectural Decision
 
@@ -137,30 +130,17 @@ The central insight of the project can be summarized as follows:
 Robust solutions do not trust users or applications; they **block by default** and explicitly allow only traffic that is correctly routed.
 
 ---
-<br>
 
-## Comparison of Approaches
+## Scope Clarification
 
-| Approach | Control Level | Leak Risk | Notes |
-|---------|--------------|----------|------|
-| Tor via torsocks | Application-level | High | Easy to use, easy to misuse |
-| Kali + Tor + firewall | System-level | Medium | Requires strict control |
-| Tails | System-level (by design) | Very low | Anonymity enforced from boot |
+During this study, **no direct hands-on testing with Tails or Whonix was performed**. While these systems are often referenced in the literature as examples of system-enforced anonymity, any mention of them without empirical validation could introduce assumptions not grounded in observation.
 
----
-<br>
+To preserve methodological rigor, **comparative claims based on external systems were intentionally excluded** from this report. The analysis is therefore strictly limited to behaviors observed in a traditional Linux environment (Kali Linux) when integrating Tor at different layers.
 
-## Why Solutions Like Tails Work
+This decision reflects the core principle of the project: **to document only what was directly tested, observed, and reasoned about**, avoiding extrapolation beyond the experimental scope.
 
-- *Deny-by-default* policy
-- Traffic allowed exclusively through Tor
-- Firewall active from system initialization
-- The system does not trust the user itself
-
-In contrast, on traditional distributions like Kali Linux, the network stack is already active before strict controls are applied.
 
 ---
-<br>
 
 ## Study Limitations
 
@@ -171,7 +151,6 @@ In contrast, on traditional distributions like Kali Linux, the network stack is 
 These limitations were consciously accepted, as the goal of the project was **mental model construction**, not forensic validation.
 
 ---
-<br>
 
 ## Key Learnings
 
@@ -181,7 +160,6 @@ These limitations were consciously accepted, as the goal of the project was **me
 - Security depends more on architecture than on tools
 
 ---
-<br>
 
 ## Next Steps
 
