@@ -184,3 +184,14 @@ These limitations were consciously accepted, as the goal of the project was **me
 
 4. Security depends more on architecture than on tools
 > Strong security emerges from restrictive, system-level design choices. Tools are only effective when embedded in an architecture that blocks by default and minimizes trust in user behavior and applications.
+
+---
+<br>
+
+## Conclusion
+
+This study demonstrates that anonymity on Linux systems is not achieved through isolated configurations or tools, but through deliberate architectural control. DNS manipulation, application-level proxying, and selective tunneling may influence specific behaviors, yet they do not provide systemic guarantees against traffic leakage.
+
+The observed behaviors highlight that network protocols operate at different layers, and any approach that relies on voluntary cooperation from applications or users inherently exposes gaps. Without enforced routing and deny-by-default policies at the system level, anonymity remains partial and fragile.
+
+Ultimately, this project reinforces that security is a property of system design, not of individual tools. Understanding these limitations is essential not to promise anonymity, but to recognize why achieving it is architecturally complex and why strong guarantees require control beyond the application layer.
