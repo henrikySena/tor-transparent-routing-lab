@@ -22,11 +22,15 @@ The focus was not merely to make Tor work, but to **understand why certain appro
 
 The motivation for this study emerged from the following initial hypothesis:
 
-> **Tor offers one of the most mature and well-audited infrastructures for anonymous browsing publicly available.**
+> **"Tor offers one of the most mature and well-audited infrastructures for anonymous browsing publicly available."**
+
+<br>
 
 From this premise, the central question of the project arose:
 
 > *If Tor is architecturally robust, why do IP leaks and anonymity failures still occur when it is used on a traditional Linux system?*
+
+<br>
 
 During practical experiments on Kali Linux, it became evident that **the issue does not lie with Tor itself**, but rather:
 
